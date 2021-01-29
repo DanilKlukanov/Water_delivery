@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.CartPage"
+             x:Name="page"
+             Title="Cart">
+    <ContentPage.Content>
+        <StackLayout Margin="10" BackgroundColor="#84c1fa">
+            <ListView x:Name="goods_list">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="cart">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0"
+                                       Source="{Binding PicPath}"
+                                       Margin="5"/>
+                                <Label Grid.Column="1"
+                                       VerticalOptions="Center"
+                                       FontSize="Small"
+                                       Text="{Binding Name}"/>
+                                <Label Grid.Column="2"
+                                       VerticalOptions="Center"
+                                       FontSize="Small"
+                                       Text="{Binding Count}"/>
+                                <Button Grid.Column="3"
+                                        Text="x"
+                                        CommandParameter="{Binding Name}"
+                                        Clicked="Delete_button"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand"
+                         HorizontalOptions="Center"
+                         Margin="10, 10, 10, 10">
+                <Button  Text="Order"
+                         CornerRadius="25"
+                         BorderColor="#fff"
+                         BorderWidth="5"
+                         Clicked="Button_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
